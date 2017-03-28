@@ -4,6 +4,11 @@
   <%= @note.title %>
 </p>
 
+<% @note.tags.any? %>
+  <% @note.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+<% end %>
+
 <p>
   <strong>Location:</strong>
   <%= @note.location %>
