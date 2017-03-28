@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Notes</h1>
+    <h1>Notes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Text</th>
-      <th>Summary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Text</th>
+                <th>Summary</th>
+                <th colspan="3"></th>
+            </tr>
+        </thead>
 
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.location %></td>
-        <td><%= note.text %></td>
-        <td><%= note.summary %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+            <% @notes.each do |note| %>
+            <tr>
+                <td><%= note.title %></td>
+                <td><%= note.location %></td>
+                <td><%= note.text %></td>
+                <td><%= note.summary %></td>
+                <td><%= link_to 'Show', note %></td>
+                <td><%= link_to 'Edit', edit_note_path(note) %></td>
+                <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Note', new_note_path %>
+    <%= link_to 'New Note', new_note_path %>
+
+</div>

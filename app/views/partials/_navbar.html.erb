@@ -1,12 +1,10 @@
 <nav class="nav has-shadow">
     <div class="container">
         <div class="nav-left">
-            <a class="nav-item">
+            <a href="/" class="nav-item">
                 <b>TELDER</b>
             </a>
-            <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
-            <a class="nav-item is-tab is-hidden-mobile">Features</a>
-            <a class="nav-item is-tab is-hidden-mobile">About</a>
+            <%= link_to "Notes", notes_path, class: "nav-item is-tab is-active" %>
         </div>
         <span class="nav-toggle">
             <span></span>
