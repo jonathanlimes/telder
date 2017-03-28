@@ -1,0 +1,26 @@
+<nav class="nav has-shadow">
+    <div class="container">
+        <div class="nav-left">
+            <a class="nav-item">
+                <b>TELDER</b>
+            </a>
+            <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
+            <a class="nav-item is-tab is-hidden-mobile">Features</a>
+            <a class="nav-item is-tab is-hidden-mobile">About</a>
+        </div>
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="nav-right nav-menu">
+            <% if user_signed_in? %>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-item is-tab" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-item is-tab" %>
+            <% else %>
+                <%= link_to "Log In", new_user_session_path, class:"nav-item is-tab" %>
+                <%= link_to "Sign Up", new_user_registration_path, class:"nav-item is-tab" %>
+            <% end %>
+            </div>
+        </div>
+    </nav>

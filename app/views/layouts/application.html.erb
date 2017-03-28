@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Telder</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Telder</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+
+        <%= render "partials/navbar" %>
+
+        <% if notice %>
+          <p class="notification is-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="notification is-danger"><%= alert %></p>
+        <% end %>
+
+        <div class="container">
+            <%= yield %>
+        </div>
+
+        <%= render "partials/footer" %>
+
+    </body>
 </html>
