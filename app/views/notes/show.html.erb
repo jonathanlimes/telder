@@ -32,7 +32,13 @@
 </div>
 
 <footer class="card-footer">
-<%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
+
+  <% if @note.creator_id == current_user.id %>
+  <%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
+  <% else %>
+  <%= link_to 'Join', join_path, class:"card-footer-item" %>
+  <% end %>
+
 <%= link_to 'Back', notes_path, class:"card-footer-item" %>
 <%= link_to 'Export to PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
 <%= link_to 'Export to Email', notes_path, class:"card-footer-item" %>
