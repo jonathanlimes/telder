@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# CUSTOM GEMS ===================================================
 # PDFKit and WKHTMLTOPDF for PDF exporting functionality
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
@@ -14,6 +14,10 @@ gem 'unirest'
 gem 'acts-as-taggable-on'
 # Devise for User Authentication
 gem 'devise'
+# Pry for rails console
+gem 'pry'
+
+# ===============================================================
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record

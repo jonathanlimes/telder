@@ -35,7 +35,7 @@ class NotesController < ApplicationController
       "Accept" => "application/json"
     },
     parameters:{
-      "sentnum" => 3,
+      "sentnum" => 1,
       "text" => @note.text
     }
 
