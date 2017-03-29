@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Unirest for Text Summarization API
+gem 'unirest'
 # Use Acts-As-Taggable-On for note tagging functionality
 gem 'acts-as-taggable-on'
 # Use Devise for User Authentication

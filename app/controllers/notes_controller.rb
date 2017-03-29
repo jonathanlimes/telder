@@ -26,6 +26,20 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    current_user.notes << @note
+
+    response = Unirest.post "https://textanalysis-text-summarization.p.mashape.com/text-summarizer-text",
+    headers:{
+      "X-Mashape-Key" => "aosLn4ArKSmshDQj2fLRpXFdIjKep1G9sPcjsnzUapJMEo5TUT",
+      "Content-Type" => "application/x-www-form-urlencoded",
+      "Accept" => "application/json"
+    },
+    parameters:{
+      "sentnum" => 1,
+      "text" => @note.text
+    }
+
+    @note.summary = response.body["sentences"].join(" ")
     @note.creator_id = current_user.id
     respond_to do |format|
       if @note.save

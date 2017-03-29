@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    stored_location_for(resource) || root_path
+    notes_path
   end
 
   # GET /resource/sign_up
