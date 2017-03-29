@@ -1,12 +1,18 @@
+<br><br>
 
-<p>
-  <strong>Title:</strong>
-  <%= @note.title %>
-</p>
+<div class="container">
+
+<div class="card">
+
+<header class="card-header">
+  <h1 class="title"><%= @note.title %></h1>
+</header>
+
+<div class="card-content">
 
 <% @note.tags.any? %>
   <% @note.tags.each do |tag| %>
-  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
 <% end %>
 
 <p>
@@ -23,6 +29,16 @@
   <strong>Summary:</strong>
   <%= @note.summary %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<footer class="card-footer">
+<%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
+<%= link_to 'Back', notes_path, class:"card-footer-item" %>
+<%= link_to 'Export to PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
+<%= link_to 'Export to Email', notes_path, class:"card-footer-item" %>
+</footer>
+
+</div>
+</div>
+
+<br><br>

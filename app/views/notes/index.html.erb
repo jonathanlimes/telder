@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container content">
 
     <h1>Notes</h1>
+
+    <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
 
     <table>
         <thead>
@@ -24,13 +26,13 @@
                 <td><%= note.summary %></td>
                 <td><%= note.creator_id %></td>
                 <td><% note.tags.each do |tag| %>
-                <%= tag %>
+                  <span class="tag is-primary"><%= tag %></span>
                 <% end %>
                 </td>
                 <td><%= note.creator_id %></td>
-                <td><%= link_to 'Show', note %></td>
-                <td><%= link_to 'Edit', edit_note_path(note) %></td>
-                <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', note, class:"button is-small is-primary" %></td>
+                <td><%= link_to 'Edit', edit_note_path(note), class:"button is-small is-primary" %></td>
+                <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-small is-primary" %></td>
             </tr>
             <% end %>
         </tbody>
@@ -38,6 +40,6 @@
 
     <br>
 
-    <%= link_to 'New Note', new_note_path %>
+    <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
 
 </div>

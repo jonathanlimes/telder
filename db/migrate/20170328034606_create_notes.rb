@@ -5,7 +5,7 @@ class CreateNotes < ActiveRecord::Migration[5.0]
       t.string :location
       t.text :text
       t.text :summary
-      t.references :creator
+      t.references :creator, index:true
 
       t.timestamps
     end

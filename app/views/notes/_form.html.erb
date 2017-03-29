@@ -1,42 +1,47 @@
-<%= form_for(note) do |f| %>
-  <% if note.errors.any? %>
+<div class="container content">
+
+    <%= form_for(note) do |f| %>
+    <% if note.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+        <h2><%= pluralize(note.errors.count, "error") %>
+            prohibited this note from being saved:</h2>
 
-      <ul>
-      <% note.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% note.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+    <div class="field">
+        <%= f.label :title, class:"label" %>
+        <%= f.text_field :title, class:"input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
+    <div class="field">
+        <%= f.label :location, class:"label" %>
+        <%= f.text_field :location, class:"input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :text %>
-    <%= f.text_area :text %>
-  </div>
+    <div class="field">
+        <%= f.label :text, class:"label" %>
+        <%= f.text_area :text, class:"input textarea" %>
+    </div>
 
-  <!-- <div class="field">
+    <!-- <div class="field">
     <%= f.label :summary %>
     <%= f.text_area :summary %>
   </div> -->
 
-  <div class="field">
-    <%= f.label :tags %>
-    <%= f.text_field :tag_list %>
-  </div>
+    <div class="field">
+        <%= f.label :tags, class:"label" %>
+        <%= f.text_field :tag_list, class:"input" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="actions">
+        <%= f.submit 'Submit', class:"button is-primary"%>
+    </div>
+    <% end %>
+
+</div>

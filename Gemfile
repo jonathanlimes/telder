@@ -5,11 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# PDFKit and WKHTMLTOPDF for PDF exporting functionality
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 # Unirest for Text Summarization API
 gem 'unirest'
-# Use Acts-As-Taggable-On for note tagging functionality
+# Acts-As-Taggable-On for note tagging functionality
 gem 'acts-as-taggable-on'
-# Use Devise for User Authentication
+# Devise for User Authentication
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
