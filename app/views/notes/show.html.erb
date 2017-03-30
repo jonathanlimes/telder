@@ -4,7 +4,7 @@
 
 <div class="card">
 
-<header class="card-header">
+<header class="card-header" style="padding: 20px">
   <h1 class="title"><%= @note.title %></h1>
 </header>
 
@@ -16,19 +16,21 @@
 <% end %>
 
 <p>
-  <strong>Location:</strong>
-  <%= @note.location %>
+  <strong>Summary:</strong><br>
+  <%= @note.summary %><br><br>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @note.text %>
+  <strong>Original Notes:</strong><br>
+  <%= @note.text %><br><br>
 </p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @note.summary %>
-</p>
+<p><i>
+  <%= @note.location %>,
+  <%= @note.created_at.localtime.strftime("%e %B %Y, %I:%M %p") %><br><br>
+  <iframe class="user-map" frameborder="0" style="border:0; width:100%; min-height:200px" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCsfwe3COwAH6Ju4CA_d2IOE79qN3g6lTM&q=<%=@note.location%>" allowfullscreen></iframe>
+</i></p>
+
 </div>
 
 <footer class="card-footer">

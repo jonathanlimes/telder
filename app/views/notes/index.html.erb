@@ -1,6 +1,6 @@
 <div class="container content">
 
-    <h1>Notes</h1>
+    <h1>Your Notes</h1>
 
     <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
 
@@ -19,8 +19,11 @@
 
         <tbody>
             <% @notes.each do |note| %>
+            <% if current_user.notes.include?(note) %>
             <tr>
-                <td><%= note.title %></td>
+                <td>
+                <%= link_to note.title, note, class:"button is-outlined is-small is-primary" %>
+                </td>
                 <td><%= note.created_at.localtime.strftime("%e/%b/%y, %I:%M %p") %></td>
                 <td><%= note.summary %></td>
                 <td><%= note.creator.name %></td>
@@ -43,8 +46,12 @@
 
 
                 <td><%= link_to 'View / Edit', note, class:"button is-small is-primary" %></td>
+                <% if note.creator.id == current_user.id %>
                 <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-small is-primary" %></td>
+                <% end %>
             </tr>
+
+            <% end %>
             <% end %>
         </tbody>
     </table>
