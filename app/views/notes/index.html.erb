@@ -8,11 +8,12 @@
         <thead>
             <tr>
                 <th>Title</th>
-                <th>Location</th>
+                <th>Created</th>
                 <th>Summary</th>
                 <th>Creator</th>
+                <th>Contributors</th>
                 <th>Tags</th>
-                <th colspan="3"></th>
+                <th colspan="2"></th>
             </tr>
         </thead>
 
@@ -20,16 +21,29 @@
             <% @notes.each do |note| %>
             <tr>
                 <td><%= note.title %></td>
-                <td><%= note.location %></td>
+                <td><%= note.created_at.localtime.strftime("%e/%b/%y, %I:%M %p") %></td>
                 <td><%= note.summary %></td>
                 <td><%= note.creator.name %></td>
-                <td><% note.tags.each do |tag| %>
-                  <span class="tag is-primary"><%= tag %></span>
+                <td>
+                <% note.users.each do |user| %>
+                <% if user.name != note.creator.name %>
+                <%= user.name %><br>
+                <% end %>
                 <% end %>
                 </td>
-                <td><%= link_to 'Show', note, class:"button is-small is-primary" %></td>
-                <td><%= link_to 'Edit', edit_note_path(note), class:"button is-small is-primary" %></td>
-                <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-small is-primary" %></td>
+                <% note.tags.any? %>
+                <td><% note.tags.each do |tag| %>
+                <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
+                <% end %></td>
+
+                <!-- <td><% note.tags.each do |tag| %>
+                  <span class="tag is-primary"><%= tag %></span>
+                <% end %>
+                </td> -->
+
+
+                <td><%= link_to 'View / Edit', note, class:"button is-small is-primary" %></td>
+                <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-small is-primary" %></td>
             </tr>
             <% end %>
         </tbody>

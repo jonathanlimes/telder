@@ -33,22 +33,15 @@
 
 <footer class="card-footer">
 
-  <% if @note.creator_id == current_user.id %>
+  <% if @note.creator_id == current_user.id || current_user.notes.include?(@note) %>
   <%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
+  <%= link_to 'Export to PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
+  <%= link_to 'Export to Email', export_email_path(id: @note.id), class:"card-footer-item", method: :post %>
   <% else %>
-  <%= link_to 'Join', join_path(@note), class:"card-footer-item" %>
+  <%= link_to 'Join', join_path(id: @note.id), class:"card-footer-item" %>
   <% end %>
+  <%= link_to 'Back', notes_path, class:"card-footer-item" %>
 
-
-<%= link_to 'Export to PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
-
-<%= form_for @note, url: export_email_path, method: :post do |f| %>
-  <%= f.submit 'Export to Email' %>
-<% end %>
-
-<%= link_to 'Export to Email', export_email_path(id: @note.id), class:"card-footer-item", method: :post %>
-
-<%= link_to 'Back', notes_path, class:"card-footer-item" %>
 </footer>
 
 </div>
