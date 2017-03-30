@@ -1,24 +1,33 @@
-# README
+# Telder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[https://telder.herokuapp.com](https://telder.herokuapp.com)
 
-Things you may want to cover:
+<img src="http://i.imgur.com/CiHuxJE.png" width="75%">
 
-* Ruby version
+Telder is a productivity note-taking app. Take your notes, and have them all summarized and categorized instantly. Full-stack web app built using Ruby on Rails, PostgreSQL, and simple natural language processing tools.
 
-* System dependencies
+## How It Works
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Entity Relationships and User Flow
 
-* How to run the test suite
+![ERD and User Flow](http://i.imgur.com/gRwbqKF.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Wireframes
 
-* Deployment instructions
+![Wireframes](http://i.imgur.com/0YYnKJV.png)
 
-* ...
+## Development
+* Ruby 5.0.2
+* Ruby on Rails, PostgreSQL
+* Text Summarization API
+* Google Natural Language Processing API
+* Bulma
+
+## References, Tools, and Inspiration
+* Unirest
+* PDFKit
+* Acts-As-Taggable-On
+* Beginner's Guide to Deep Learning and Neural Networks
+* Instructors and Classmates at General Assembly Singapore
