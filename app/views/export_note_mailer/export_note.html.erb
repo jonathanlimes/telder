@@ -2,16 +2,28 @@
 <html>
   <head>
     <meta content='text/html'; charset="utf-8" http-equiv="Content-Type">
+    <style media="screen">
+      .block {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+    </style>
   </head>
   <body>
 
     <h1><%= @note.title %></h1>
     <br>
-    Summary: <p><%= @note.summary %></p>
+
+    <div class="block">
+      <b>SUMMARY:</b> <p><%= @note.summary %></p>
+    </div>
+
     <br>
-    Long Text: <p><%= @note.text %><p>
-    <i>Created <%= @note.created_at.localtime.strftime("%e/%b/%y, %I:%M %p") %></i>
-    <i>Location: <%= @note.location %></i>
+
+    <div class="block">
+      <b>ORIGINAL NOTE:</b> <p><%= @note.text %><p>
+    </div>
+
+    <i>Created <%= @note.created_at.localtime.strftime("%e %B %y, %I:%M %p") %> at <%= @note.location %></i>
 
     <br><br>
     Yours,

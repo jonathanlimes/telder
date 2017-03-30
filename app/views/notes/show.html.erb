@@ -10,11 +10,6 @@
 
 <div class="card-content">
 
-<% @note.tags.any? %>
-  <% @note.tags.each do |tag| %>
-  <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
-<% end %>
-
 <p>
   <strong>Summary:</strong><br>
   <%= @note.summary %><br><br>
@@ -24,6 +19,11 @@
   <strong>Original Notes:</strong><br>
   <%= @note.text %><br><br>
 </p>
+
+<% @note.tags.any? %>
+  <% @note.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
+<% end %>
 
 <p><i>
   <%= @note.location %>,
