@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'static#home'
   get 'tagged' => 'notes#tagged', :as => 'tagged'
   get 'join' => 'notes#join', :as => 'join'
+  post 'export_email' => 'notes#export_email', :as => 'export_email'
 end

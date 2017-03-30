@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 20170328095555) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "users_notes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_users_notes_on_note_id", using: :btree
+    t.index ["user_id"], name: "index_users_notes_on_user_id", using: :btree
+  end
+
   add_foreign_key "notes_users", "notes"
   add_foreign_key "notes_users", "users"
 end

@@ -85,8 +85,17 @@ class NotesController < ApplicationController
   end
 
   def join
-    # fix this
-    # current_user.notes << @note
+    # you need to define 'note' first
+    current_user.notes << @note
+  end
+
+  def export_email
+    p params
+    p params[:id]
+
+    ExportNoteMailer.export_note(current_user, Note.find(params[:id])).deliver
+    flash[:notice] = "Note has been exported and sent to your email address."
+    redirect_to notes_path
   end
 
   private
