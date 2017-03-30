@@ -2,13 +2,9 @@
 
 [https://telder.herokuapp.com](https://telder.herokuapp.com)
 
-<img src="http://i.imgur.com/CiHuxJE.png" width="75%">
+<img src="http://i.imgur.com/CiHuxJE.png" width="60%">
 
 Telder is a productivity note-taking app. Take your notes, and have them all summarized and categorized instantly. Full-stack web app built using Ruby on Rails, PostgreSQL, and simple natural language processing tools.
-
-## How It Works
-
-
 
 ## Entity Relationships and User Flow
 
