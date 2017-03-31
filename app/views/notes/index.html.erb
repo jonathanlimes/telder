@@ -24,7 +24,7 @@
                 <td>
                 <%= link_to note.title, note, class:"button is-outlined is-small is-primary" %>
                 </td>
-                <td><%= note.created_at.localtime.strftime("%e/%b/%y, %I:%M %p") %></td>
+                <td><%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %></td>
                 <td><%= note.summary %></td>
                 <td><%= note.creator.name %></td>
                 <td>
@@ -37,14 +37,8 @@
                 <% note.tags.any? %>
                 <td><% note.tags.each do |tag| %>
                 <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary is-small" %>
-                <% end %></td>
-
-                <!-- <td><% note.tags.each do |tag| %>
-                  <span class="tag is-primary"><%= tag %></span>
                 <% end %>
-                </td> -->
-
-
+                </td>
                 <td><%= link_to 'View / Edit', note, class:"button is-small is-primary" %></td>
                 <% if note.creator.id == current_user.id %>
                 <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-small is-primary" %></td>

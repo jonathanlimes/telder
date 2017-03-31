@@ -1,6 +1,10 @@
-<h1>Editing Note</h1>
+<div class="container content">
 
-<%= render 'form', note: @note %>
+    <h1>Edit Note: "<%=@note.title%>" </h1>
 
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+    <%= render 'form', note: @note %>
+
+    <%= link_to 'Back to Note', @note, class:"button is-primary" %>
+    <%= link_to 'View All Notes', notes_path, class:"button is-warning" %>
+
+</div>

@@ -20,15 +20,16 @@
   <%= @note.text %><br><br>
 </p>
 
+<p>
 <% @note.tags.any? %>
   <% @note.tags.each do |tag| %>
   <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
-<% end %>
+<% end %><br><br>
+</p>
 
 <p><i>
   <%= @note.location %>,
   <%= @note.created_at.localtime.strftime("%e %B %Y, %I:%M %p") %><br><br>
-  <iframe class="user-map" frameborder="0" style="border:0; width:100%; min-height:200px" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCsfwe3COwAH6Ju4CA_d2IOE79qN3g6lTM&q=<%=@note.location%>" allowfullscreen></iframe>
 </i></p>
 
 </div>
@@ -37,8 +38,8 @@
 
   <% if @note.creator_id == current_user.id || current_user.notes.include?(@note) %>
   <%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
-  <%= link_to 'Export to PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
-  <%= link_to 'Export to Email', export_email_path(id: @note.id), class:"card-footer-item", method: :post %>
+  <%= link_to 'PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
+  <%= link_to 'Email', export_email_path(id: @note.id), class:"card-footer-item", method: :post %>
   <% else %>
   <%= link_to 'Join', join_path(id: @note.id), class:"card-footer-item" %>
   <% end %>
