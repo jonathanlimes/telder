@@ -16,10 +16,10 @@ https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
         <%= render "partials/navbar" %>
 
         <% if notice %>
-          <p class="notification is-success"><%= notice %></p>
+          <p class="notification is-primary" style="margin:0"><%= notice %></p>
         <% end %>
         <% if alert %>
-          <p class="notification is-danger"><%= alert %></p>
+          <p class="notification is-danger" style="margin:0"><%= alert %></p>
         <% end %>
 
         <%= yield %>
