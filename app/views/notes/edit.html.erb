@@ -9,3 +9,7 @@
     <%= link_to 'View All Notes', notes_path, class:"button is-warning" %>
 
 </div>
+
+<script>
+  var current_note_id = <%= @note.id.to_i %>
+</script>

@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get 'join' => 'notes#join', :as => 'join'
   post 'export_email' => 'notes#export_email', :as => 'export_email'
 
+  # To mount Action Cable, and to listen to ws://localhost:3000/cable
+  mount ActionCable.server => '/cable'
+
 end
