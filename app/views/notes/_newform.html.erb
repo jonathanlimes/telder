@@ -25,14 +25,12 @@
     </div>
 
     <div class="field">
-        <label class="label">Text
-          <span id="text-label" class="tag is-dark" style="font-size:0.7em">Detecting connection... </span>
-        </label>
-        <%= f.text_area :text, class:"textarea", id:"note-text" %>
+        <label class="label">Text</label>
+        <%= f.text_area :text, class:"textarea"%>
     </div>
 
     <div class="actions">
-        <%= f.submit 'Submit', class:"button is-primary"%>
+        <%= f.submit 'Create New Note', class:"button is-primary"%>
     </div>
     <% end %>
 
