@@ -23,7 +23,7 @@
 <p>
 <% @note.tags.any? %>
   <% @note.tags.each do |tag| %>
-  <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary" %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary", style:"margin:2px; font-size:0.8em" %>
 <% end %><br><br>
 </p>
 
