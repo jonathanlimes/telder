@@ -96,4 +96,7 @@ Rails.application.configure do
   :domain         => 'heroku.com',
   :enable_starttls_auto => true
   }
+
+  config.web_socket_server_url = "wss://telder.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://telder.herokuapp.com', 'http://telder.herokuapp.com']
 end
