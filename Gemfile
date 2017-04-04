@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 # CUSTOM GEMS ===================================================
+# Clipboard-rails for copying text to clipboard
+gem 'clipboard-rails'
 # Figaro for actionmailer email function and storing account vars
 gem 'figaro'
 # PDFKit and WKHTMLTOPDF for PDF exporting functionality

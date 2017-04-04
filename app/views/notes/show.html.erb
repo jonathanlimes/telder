@@ -5,19 +5,30 @@
 <div class="card">
 
 <header class="card-header" style="padding: 20px">
-  <h1 class="title"><%= @note.title %></h1>
+  <h1 class="title left"><%= @note.title %></h1>
 </header>
 
 <div class="card-content">
 
+  <div class="field has-addons" style="padding:0">
+    <p class="control is-expanded">
+      <input class="input is-medium" id="url" value="<%= request.original_url %>">
+    </p>
+    <p class="control">
+      <button class="clipboard-btn button is-primary is-medium" data-clipboard-action="copy" data-clipboard-target="#url" title="Copy URL to share with another user">
+      <i class="fa fa-clipboard"></i>
+      </button>
+    </p>
+  </div>
+
 <p>
-  <strong>Summary:</strong><br>
-  <%= @note.summary %><br><br>
+  <h3><strong>Summary:</strong><br>
+  <%= @note.summary %><br><br></h3>
 </p>
 
 <p>
-  <strong>Original Notes:</strong><br>
-  <%= @note.text %><br><br>
+  <h3><strong>Original Notes:</strong><br>
+  <%= @note.text %><br><br></h3>
 </p>
 
 <p>
@@ -29,7 +40,7 @@
 
 <p><i>
   <%= @note.location %>,
-  <%= @note.created_at.localtime.strftime("%e %B %Y, %I:%M %p") %><br><br>
+  <%= @note.created_at.localtime.strftime("%e %B %Y, %I:%M %p") %><br>
 </i></p>
 
 </div>
@@ -37,7 +48,7 @@
 <footer class="card-footer">
 
   <% if @note.creator_id == current_user.id || current_user.notes.include?(@note) %>
-  <%= link_to 'Edit', edit_note_path(@note), class:"card-footer-item" %>
+  <%= link_to 'Edit'.html_safe, edit_note_path(@note), class:"card-footer-item" %>
   <%= link_to 'PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
   <%= link_to 'Email', export_email_path(id: @note.id), class:"card-footer-item", method: :post %>
   <% else %>
