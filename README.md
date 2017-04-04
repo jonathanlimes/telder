@@ -6,6 +6,14 @@
 
 Telder is a productivity note-taking app. Take your notes, and have them all summarized and categorized instantly. Full-stack web app built using Ruby on Rails, PostgreSQL, and simple natural language processing tools.
 
+## Features
+* Simple NLP summarization
+* Automatic tagging
+* Collaborative text editor
+* PDF/Email export functions
+* Sharing functions between Creator and Contributors
+* Simple note ID encryption
+
 ## Entity Relationships and User Flow
 
 ![ERD and User Flow](http://i.imgur.com/gRwbqKF.png)
