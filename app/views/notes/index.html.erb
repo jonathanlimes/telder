@@ -2,14 +2,14 @@
 
     <h1>Your Notes</h1>
 
-    <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
-
-    <br><br>
     <div class="field has-addons">
+      <p class="control">
+        <%= link_to 'Create new note', new_note_path, class:"button is-primary" %>
+      </p>
       <p class="control is-expanded">
         <span class="select is-fullwidth">
           <select name="note" id="dropdown">
-            <option value="">Find a Note</option>
+            <option value="" data-link="<%= notes_path %>">Or find one of your previous notes</option>
             <% @notes.each do |note| %>
               <% if note.creator_id == current_user.id %>
                 <option value="<%= note.id %>" data-link="<%= note_path(note.id) %>"><%= note.title %> (<%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %>)</option>
@@ -19,7 +19,7 @@
         </span>
       </p>
       <p class="control">
-        <a href="<%= note_path(Note.first) %>" id="dropdown-link" class="button is-primary">Go to Note</a>
+        <a href="<%= notes_path %>" id="dropdown-link" class="button is-primary">Go to Note</a>
       </p>
     </div>
 
@@ -69,9 +69,7 @@
         </tbody>
     </table>
 
-    <br>
-
-    <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
+    <%= link_to 'Create new note', new_note_path, class:"button is-primary" %>
 
 </div>
 

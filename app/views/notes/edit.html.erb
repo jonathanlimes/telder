@@ -1,7 +1,7 @@
 <br>
 <div class="container content">
 
-    <h1>Edit Note: <i><%=@note.title%></i>
+    <h1>Edit: <i><%=@note.title%></i>
 
     <% if @note.users.first.id == current_user.id %>
       <span class="button is-warning">
@@ -22,9 +22,6 @@
     </h1>
 
     <%= render 'form', note: @note %>
-
-    <%= link_to 'Back to Note', @note, class:"button is-primary" %>
-    <%= link_to 'View All Notes', notes_path, class:"button is-warning" %>
 
 </div>
 

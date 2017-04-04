@@ -1,24 +1,36 @@
-<br>
-<div class="container content">
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-4 is-offset-4">
+                    <h1 class="title">
+                        Login
+                    </h1>
+                    <div class="box">
 
-<h2>Log In</h2>
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="field">
+                            <%= f.label :email, class:"label" %>
+                            <%= f.email_field :email, autofocus: true, class:"input" %>
+                        </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, class:"label" %>
-    <%= f.email_field :email, autofocus: true, class:"input" %>
-  </div>
+                        <div class="field">
+                            <%= f.label :password, class:"label" %>
+                            <%= f.password_field :password, autocomplete: "off", class:"input" %>
+                        </div>
 
-  <div class="field">
-    <%= f.label :password, class:"label" %>
-    <%= f.password_field :password, autocomplete: "off", class:"input" %>
-  </div>
+                        <div class="actions">
+                            <%= f.submit "Log in", class:"button is-primary" %>
+                        </div>
+                        <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in", class:"button is-primary" %>
-  </div>
-<% end %>
+                    </div>
+                    <p class="has-text-centered">
+                        <%= render "devise/shared/links" %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<%= render "devise/shared/links" %>
-
-</div>
+</section>

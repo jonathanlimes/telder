@@ -39,13 +39,15 @@
     <div class="field">
         <label class="label">Text
           <span id="text-label" class="tag is-dark" style="font-size:0.7em">Detecting connection... </span>
-          <span class="tag is-warning">Active Editors: <%= ActionCable.server.connections.length %></span>
+          <span class="tag is-warning" id="active-editors">Active Editors: <%= ActionCable.server.connections.length %></span>
         </label>
         <%= f.text_area :text, class:"textarea", id:"note-text" %>
     </div>
 
     <div class="actions">
         <%= f.submit 'Submit', class:"button is-primary"%>
+        <%= link_to 'Back to Note', @note, class:"button is-warning" %>
+        <%= link_to 'View All Notes', notes_path, class:"button is-warning" %>
     </div>
     <% end %>
 
