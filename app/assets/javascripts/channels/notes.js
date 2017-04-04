@@ -15,10 +15,13 @@ function connectRealTime () {
         var lastCursorPosition = $('#note-text').caret()
         console.log(lastCursorPosition)
         // replace previous content with new Content
-        $('#note-text').val(data.text)
-        // return cursor position to last known position
-        $('#note-text').caret(lastCursorPosition, 1)
-        console.log('restored last cursor position')
+        // if you are the sender don't show it
+        if (data.author !== current_user_id) {
+          $('#note-text').val(data.text)
+          // return cursor position to last known position
+          $('#note-text').caret(lastCursorPosition)
+          console.log('restored last cursor position')
+        }
       },
       connected: function () {
         $('#text-label').addClass('is-primary')

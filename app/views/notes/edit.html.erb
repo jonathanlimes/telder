@@ -1,7 +1,25 @@
 <br>
 <div class="container content">
 
-    <h1>Edit Note: "<%=@note.title%>" </h1>
+    <h1>Edit Note: <i><%=@note.title%></i>
+
+    <% if @note.users.first.id == current_user.id %>
+      <span class="button is-warning">
+        <span class="icon">
+        <i class="fa fa-user-circle-o"></i>
+        </span>
+        <b>Creator</b>
+      </span>
+    <% else %>
+      <span class="button is-info">
+        <span class="icon">
+        <i class="fa fa-id-badge"></i>
+        </span>
+        <b>Contributor</b>
+      </span>
+    <% end %>
+
+    </h1>
 
     <%= render 'form', note: @note %>
 
@@ -12,4 +30,5 @@
 
 <script>
   var current_note_id = <%= @note.id.to_i %>
+  var current_user_id = <%= current_user.id %>
 </script>

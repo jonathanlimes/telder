@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
 
 function realtimeTextarea() {
   console.log('realtimeTextarea is running')
-  $('#note-text').keyup(function() {
-    App.notes.send({ text: $(this).val()})
+  $('#note-text').on('keyup', function() {
+    App.notes.send({ text: $(this).val(), author: current_user_id})
   })
 }
