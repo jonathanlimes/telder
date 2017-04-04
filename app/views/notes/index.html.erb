@@ -4,6 +4,25 @@
 
     <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
 
+    <br><br>
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <span class="select is-fullwidth">
+          <select name="note" id="dropdown">
+            <option value="">Find a Note</option>
+            <% @notes.each do |note| %>
+              <% if note.creator_id == current_user.id %>
+                <option value="<%= note.id %>" data-link="<%= note_path(note.id) %>"><%= note.title %> (<%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %>)</option>
+              <% end %>
+            <% end %>
+          </select>
+        </span>
+      </p>
+      <p class="control">
+        <a href="<%= note_path(Note.first) %>" id="dropdown-link" class="button is-primary">Go to Note</a>
+      </p>
+    </div>
+
     <table>
         <thead>
             <tr>
@@ -55,3 +74,15 @@
     <%= link_to 'New Note', new_note_path, class:"button is-primary" %>
 
 </div>
+
+<script>
+
+$('select').change(function() {
+  console.log('params changed')
+  $('select option:selected').each(function() {
+    var link = $(this).data('link')
+    $('#dropdown-link').attr('href', link)
+  })
+})
+
+</script>

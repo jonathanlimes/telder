@@ -7,4 +7,14 @@ class Note < ApplicationRecord
 
   acts_as_taggable_on :tags
 
+  before_create :generate_random_id
+
+  private
+
+  def generate_random_id
+    begin
+      self.id = SecureRandom.random_number(10000000)
+    end while Note.where(id: self.id).exists?
+  end
+
 end
