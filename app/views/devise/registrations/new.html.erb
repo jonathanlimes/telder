@@ -22,16 +22,12 @@
                         </div>
 
                         <div class="field">
-                            <%= f.label :password, class:"label" %>
-                            <% if @minimum_password_length %>
-                            <em style="color:black">(<%= @minimum_password_length %>
-                                characters minimum)</em>
-                            <% end %>
+                            <%= f.label 'Password (6 characters minimum)', class:"label" %>
                             <%= f.password_field :password, autocomplete: "off", class:"input" %>
                         </div>
 
                         <div class="field">
-                            <%= f.label :password_confirmation, class:"label" %>
+                            <%= f.label 'Confirm Password', class:"label" %>
                             <%= f.password_field :password_confirmation, autocomplete: "off", class:"input" %>
                         </div>
 
