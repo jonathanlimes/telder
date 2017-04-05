@@ -25,18 +25,18 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 ![Wireframes](http://i.imgur.com/0YYnKJV.png)
 
 ## Development
-* Ruby 5.0.2
+* [Ruby 5.0.2](https://www.ruby-lang.org/en/)
 * [Rails 5](http://rubyonrails.org/) / [PostgreSQL](https://www.postgresql.org/)
+* [ActionCable](http://edgeguides.rubyonrails.org/action_cable_overview.html) / [Redis](https://redis.io/)
 * [Text Summarization API](http://textsummarization.net/text-summarization-api-document)
 * [Google Natural Language Processing API](https://cloud.google.com/natural-language/)
-* [Bulma CSS](http://bulma.io/)
+* [Bulma CSS](http://bulma.io/) / [jQuery](https://jquery.com/)
 
 ## References, Tools, and Inspiration
 * [Unirest](https://github.com/Mashape/unirest-ruby)
 * [PDFKit](https://github.com/pdfkit/pdfkit)
 * [Acts-As-Taggable-On](https://github.com/mbleigh/acts-as-taggable-on)
 * [Clipboard.js](https://clipboardjs.com/)
-* [ActionCable](http://edgeguides.rubyonrails.org/action_cable_overview.html) / [Redis](https://redis.io/)
 * [Beginner's Guide to Deep Learning and Neural Networks](https://www.youtube.com/playlist?list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-)
 * [FlatIcon.com](http://www.flaticon.com)
 * Instructors and Classmates at General Assembly Singapore
