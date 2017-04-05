@@ -3,16 +3,19 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-1">
-                  <br><br>
-                  <h1 class="title"><b>Take notes. Never worry about them again.</b></h1>
-                  <h4 class="subtitle">Telder summarizes and sorts your notes. Edit notes real-time with others. Speed life up.</h4>
+                    <br><br>
+                    <h1 class="title">
+                        <b>Take notes. Never worry about them again.</b>
+                    </h1>
+                    <h4 class="subtitle">Telder summarizes and sorts your notes. Edit notes real-time with others. Speed life up.</h4>
 
-                  <% if !user_signed_in? %>
-                    <%= link_to "Sign up now", new_user_registration_path, class:"button is-warning", style:"color:#444444" %>
-                  <% else %>
+                    <% if !user_signed_in? %>
+                    <button id="toggle-modal-signup" class="button is-warning">Sign up now</button>
+                    <button id="toggle-modal-login" class="button is-warning">Login</button>
+                <% else %>
                     <%= link_to "See all Notes", notes_path, class:"button is-warning", style:"color:#444444" %>
                     <%= link_to "Add a note", new_note_path, class:"button is-warning", style:"color:#444444" %>
-                  <% end %>
+                    <% end %>
 
                 </div>
                 <div class="column">
@@ -73,3 +76,79 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="modal-login">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="notification">
+            <button class="delete is-pulled-right" id="toggle-modal-login"></button>
+            <h1 class="title">Login</h1>
+            <%= form_for(:user, url: session_path(:user)) do |f| %>
+            <div class="field">
+                <%= f.label :email, class:"label" %>
+                <%= f.email_field :email, autofocus: true, class:"input" %>
+            </div>
+            <div class="field">
+                <%= f.label :password, class:"label" %>
+                <%= f.password_field :password, autocomplete: "off", class:"input" %>
+            </div>
+            <div class="actions">
+                <%= f.submit "Log in", class:"button is-primary" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <button class="modal-close" id="toggle-modal-login"></button>
+</div>
+
+<div class="modal" id="modal-signup">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="notification">
+            <button class="delete is-pulled-right" id="toggle-modal-signup"></button>
+            <h1 class="title">Register as new user</h1>
+
+            <%= form_for(:user, url: registration_path(:user)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field">
+                <%= f.label :name, class:"label" %>
+                <%= f.text_field :name, autofocus: true, class:"input"%>
+            </div>
+
+            <div class="field">
+                <%= f.label :email, class:"label" %>
+                <%= f.email_field :email, autofocus: true, class:"input" %>
+            </div>
+
+            <div class="field">
+                <%= f.label 'Password (6 characters minimum)', class:"label" %>
+                <%= f.password_field :password, autocomplete: "off", class:"input" %>
+            </div>
+
+            <div class="field">
+                <%= f.label 'Confirm Password', class:"label" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class:"input" %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Register", class:"button is-primary" %>
+            </div>
+            <% end %>
+
+        </div>
+    </div>
+    <button class="modal-close" id="toggle-modal-signup"></button>
+</div>
+
+<script>
+
+    $('[id=toggle-modal-login]').click(function () {
+        $('#modal-login').toggleClass('is-active')
+    })
+
+    $('[id=toggle-modal-signup]').click(function () {
+        $('#modal-signup').toggleClass('is-active')
+    })
+    
+</script>

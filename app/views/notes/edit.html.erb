@@ -4,7 +4,7 @@
     <h1>Edit: <i><%=@note.title%></i>
 
     <% if @note.users.first.id == current_user.id %>
-      <span class="button is-warning">
+      <span class="button is-warning is-pulled-right is-large">
         <span class="icon">
         <i class="fa fa-user-circle-o"></i>
         </span>

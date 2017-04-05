@@ -1,0 +1,114 @@
+<div class="container profile">
+    <div class="section profile-heading">
+        <div class="card columns">
+            <div class="column is-2">
+                <div class="image is-128x128 avatar">
+                    <img src="https://api.adorable.io/avatars/285/<%= @user.email %>.png">
+                </div>
+            </div>
+            <div class="column is-3 name">
+                <h1>
+                    <span class="title is-bold"><%= @user.name %></span>
+                </h1>
+                <h5 class="tagline">
+                    <i><%= @user.email %></i>
+                </h5>
+                <h5 class="tagline">
+                    <small>Member since
+                        <%= @user.created_at.strftime("%e %B %Y") %></small>
+                </h5>
+                <button class="button is-primary" id="toggle-modal-edit-user">Edit Profile</button>
+            </div>
+            <div class="column is-1 has-text-centered">
+                <br>
+                <% if @user.notes.last %>
+                <h3 class="title"><%= @user.notes.length %></h3>
+                <h3 class="subtitle">Notes</h3>
+                <% end %>
+            </div>
+            <div class="column is-3 has-text-centered">
+                <br>
+                <% if @user.notes.last %>
+                <h3 class="title"><%= @user.notes.last.updated_at.localtime.strftime("%e/%m/%y, %I:%M %p") %></h3>
+                <h3 class="subtitle">Last Activity</h3>
+                <% end %>
+            </div>
+            <div class="column is-3 has-text-centered">
+                <br>
+                <% if @user.notes.last %>
+                <h3 class="title"><%= @user.last_sign_in_at.localtime.strftime("%e/%m/%y, %I:%M %p") %></h3>
+                <h3 class="subtitle">Last Login</h3>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-edit-user">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="notification">
+            <button class="delete is-pulled-right" id="toggle-modal-edit-user"></button>
+            <h1 class="title">Edit User Profile</h1>
+
+            <%= form_for(:user, url: registration_path(:user), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field">
+                <%= f.label :name, class:"label" %>
+                <%= f.text_field :name, autofocus: true, class:"input"%>
+            </div>
+
+            <div class="field">
+                <%= f.label :email, class:"label" %>
+                <%= f.email_field :email, autofocus: true, class:"input" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for:
+                <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="field">
+                <%= f.label :password, class:"label" %>
+                <i>(leave blank if you don't want to change it)</i>
+                <%= f.password_field :password, autocomplete: "off", class:"input" %>
+                <% if @minimum_password_length %>
+                <br/>
+                <em><%= @minimum_password_length %>
+                    characters minimum</em>
+                <% end %>
+            </div>
+
+            <div class="field">
+                <%= f.label :password_confirmation, class:"label" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class:"input" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :current_password, class:"label" %>
+                <i>(we need your current password to confirm your changes)</i>
+                <%= f.password_field :current_password, autocomplete: "off", class:"input" %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Update", class:"button is-primary" %>
+            </div>
+            <% end %>
+
+            <h3>Cancel my account</h3>
+            <small>
+                We'd hate to see you go.</small><br><br>
+            <%= button_to "Delete account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete, class:"button is-dark" %>
+
+        </div>
+    </div>
+    <button class="modal-close" id="toggle-modal-edit-user"></button>
+</div>
+
+<script>
+
+    $('[id=toggle-modal-edit-user]').click(function () {
+        $('#modal-edit-user').toggleClass('is-active')
+    })
+</script>

@@ -78,6 +78,44 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+
+    # Resend updated text through APIs
+    # SUMMARIZER: Send post request to summarization API with given parameters
+    response = Unirest.post "https://textanalysis-text-summarization.p.mashape.com/text-summarizer-text",
+    headers:{
+      "X-Mashape-Key" => "aosLn4ArKSmshDQj2fLRpXFdIjKep1G9sPcjsnzUapJMEo5TUT",
+      "Content-Type" => "application/x-www-form-urlencoded",
+      "Accept" => "application/json"
+    },
+    parameters:{
+      "sentnum" => 1,
+      "text" => @note.text
+    }
+
+    # AUTO TAGGER: Send post request to Google NL API with given parameters
+    tag_scraper = Unirest.post "https://language.googleapis.com/v1/documents:analyzeEntities?key=AIzaSyA4A03W32VwKt313lZiEVD4_47P2A9lMeQ",
+    headers:{
+      "Content-Type" => "application/json"
+    },
+    parameters: JSON.generate({
+        "encodingType": "UTF8",
+        "document": {
+          "type": "PLAIN_TEXT",
+          "content": @note.text}})
+
+    # Set up array and push relevant entities into the array, then remove repeated entities and sort it alphabetically
+    tag_arr = []
+    tag_scraper.body["entities"].each do |entity|
+      if entity["type"] != "OTHER"
+        tag_arr.push(entity["name"])
+      end
+    end
+    tag_arr.uniq!
+    tag_arr.sort_by!(&:downcase)
+
+    @note.tag_list = tag_arr
+    @note.summary = response.body["sentences"].join(" ")
+
     respond_to do |format|
       if @note.update(note_params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }

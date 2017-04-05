@@ -34,12 +34,12 @@ function connectRealTime () {
         }
       },
       connected: function () {
-        $('#text-label').addClass('is-primary')
+        $('#text-label').attr('class', 'tag is-primary')
         $('#text-label').text('Connected to Server')
         console.log('Client-side channel connected to server')
       },
       disconnected: function () {
-        $('#text-label').addClass('is-danger')
+        $('#text-label').attr('class', 'tag is-danger')
         $('#text-label').text('Disconnected from Server')
         console.log('Client-side channel disconnected from server')
       },

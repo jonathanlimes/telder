@@ -20,7 +20,6 @@ gem 'acts-as-taggable-on'
 gem 'devise'
 # Pry for rails console
 gem 'pry'
-
 # ===============================================================
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
