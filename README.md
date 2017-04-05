@@ -9,7 +9,7 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 ## Features
 * Simple NLP summarization
 * Automatic tagging
-* Collaborative text editor
+* Collaborative real-time text editor
 * PDF/Email export functions
 * Sharing functions between Creator and Contributors
 * Simple note ID encryption

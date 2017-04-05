@@ -1,6 +1,7 @@
 <br><div class="container content">
 
-    <h1>Your Notes</h1>
+    <% greetings = ["Hello", "Heya", "Howdy", "How's it going", "What's up", "Looking good", "Hope it's been a good day", "Ahoy", "Greetings", "Aloha", "Hey", "Hi", "Ello", "Sup", "Welcome back"] %>
+    <h1><%= greetings.sample %>, <%= current_user.name.split(" ").first %>.</h1>
 
     <div class="field has-addons">
       <p class="control">
