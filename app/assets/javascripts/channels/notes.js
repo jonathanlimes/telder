@@ -4,12 +4,22 @@ $(document).on('turbolinks:load', function () {
 
 function connectRealTime () {
   console.log('connectRealTime function is running')
+
+  if (!current_note_id) {
+    return
+  }
+
   App.notes = App.cable.subscriptions.create({
     channel: 'NotesChannel',
     note_id: current_note_id },
 
     {
       received: function (data) {
+        console.log(data.active_editors)
+        if (data.active_editors) {
+          $('#active-editors').text('Active Editors: ' + data.active_editors)
+          return
+        }
         console.log('received input')
         // capture last known position of cursor
         var lastCursorPosition = $('#note-text').caret()

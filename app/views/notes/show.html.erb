@@ -47,6 +47,7 @@
 
 <footer class="card-footer">
 
+  <%= link_to 'Back', notes_path, class:"card-footer-item" %>
   <% if @note.creator_id == current_user.id || current_user.notes.include?(@note) %>
   <%= link_to 'Edit'.html_safe, edit_note_path(@note), class:"card-footer-item" %>
   <%= link_to 'PDF', note_path(@note, format:"pdf"), class:"card-footer-item" %>
@@ -54,7 +55,6 @@
   <% else %>
   <%= link_to 'Join', join_path(id: @note.id), class:"card-footer-item" %>
   <% end %>
-  <%= link_to 'Back', notes_path, class:"card-footer-item" %>
 
 </footer>
 
@@ -64,10 +64,8 @@
 <br><br>
 
 <script>
-
   $(document).ready(function() {
     var clipboard = new Clipboard('.clipboard-btn')
     console.log(clipboard)
   })
-
 </script>

@@ -6,7 +6,14 @@
                   <br><br>
                   <h1 class="title"><b>Take notes. Never worry about them again.</b></h1>
                   <h4 class="subtitle">Telder summarizes and sorts your notes. Edit notes real-time with others. Speed life up.</h4>
-                  <%= link_to "Sign up now", new_user_registration_path, class:"button is-warning", style:"color:#444444" %>
+
+                  <% if !user_signed_in? %>
+                    <%= link_to "Sign up now", new_user_registration_path, class:"button is-warning", style:"color:#444444" %>
+                  <% else %>
+                    <%= link_to "See all Notes", notes_path, class:"button is-warning", style:"color:#444444" %>
+                    <%= link_to "Add a note", new_note_path, class:"button is-warning", style:"color:#444444" %>
+                  <% end %>
+
                 </div>
                 <div class="column">
                     <img id="landing-gif" src="https://media.giphy.com/media/xUA7b6FSPVFuNiIyEE/giphy.gif" alt="screen-video">

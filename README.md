@@ -2,7 +2,9 @@
 
 [https://telder.herokuapp.com](https://telder.herokuapp.com)
 
-<img src="http://i.imgur.com/CiHuxJE.png" width="60%">
+<img src="http://i.imgur.com/CiHuxJE.png?1" width="60%">
+
+<img src="https://media.giphy.com/media/xUA7b6FSPVFuNiIyEE/giphy.gif">
 
 Telder is a productivity note-taking app. Take your notes, and have them all summarized and categorized instantly. Full-stack web app built using Ruby on Rails, PostgreSQL, and simple natural language processing tools.
 
@@ -24,14 +26,17 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 
 ## Development
 * Ruby 5.0.2
-* Ruby on Rails, PostgreSQL
-* Text Summarization API
-* Google Natural Language Processing API
-* Bulma
+* [Rails 5](http://rubyonrails.org/) / [PostgreSQL](https://www.postgresql.org/)
+* [Text Summarization API](http://textsummarization.net/text-summarization-api-document)
+* [Google Natural Language Processing API](https://cloud.google.com/natural-language/)
+* [Bulma CSS](http://bulma.io/)
 
 ## References, Tools, and Inspiration
-* Unirest
-* PDFKit
-* Acts-As-Taggable-On
-* Beginner's Guide to Deep Learning and Neural Networks
+* [Unirest](https://github.com/Mashape/unirest-ruby)
+* [PDFKit](https://github.com/pdfkit/pdfkit)
+* [Acts-As-Taggable-On](https://github.com/mbleigh/acts-as-taggable-on)
+* [Clipboard.js](https://clipboardjs.com/)
+* [ActionCable](http://edgeguides.rubyonrails.org/action_cable_overview.html) / [Redis](https://redis.io/)
+* [Beginner's Guide to Deep Learning and Neural Networks](https://www.youtube.com/playlist?list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-)
+* [FlatIcon.com](www.flaticon.com)
 * Instructors and Classmates at General Assembly Singapore

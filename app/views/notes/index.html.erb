@@ -20,7 +20,7 @@
         </span>
       </p>
       <p class="control">
-        <a href="<%= notes_path %>" id="dropdown-link" class="button is-primary">Go to Note</a>
+        <a href="<%= notes_path %>" id="dropdown-link" class="button is-primary"><span class="icon"><i class="fa fa-chevron-right"></i></span></a>
       </p>
     </div>
 
@@ -45,7 +45,7 @@
                 <%= link_to note.title, note, class:"button is-outlined is-small is-primary" %>
                 </td>
                 <td><%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %></td>
-                <td><%= note.summary %></td>
+                <td><%= note.summary.split(" ")[0..10].join(" ") %>...</td>
                 <td><%= note.creator.name %></td>
                 <td>
                 <% note.users.each do |user| %>
