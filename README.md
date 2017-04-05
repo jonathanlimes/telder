@@ -38,5 +38,5 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 * [Clipboard.js](https://clipboardjs.com/)
 * [ActionCable](http://edgeguides.rubyonrails.org/action_cable_overview.html) / [Redis](https://redis.io/)
 * [Beginner's Guide to Deep Learning and Neural Networks](https://www.youtube.com/playlist?list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-)
-* [FlatIcon.com](www.flaticon.com)
+* [FlatIcon.com](http://www.flaticon.com)
 * Instructors and Classmates at General Assembly Singapore
