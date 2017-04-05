@@ -25,7 +25,7 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 ![Wireframes](http://i.imgur.com/0YYnKJV.png)
 
 ## Development
-* [Ruby 5.0.2](https://www.ruby-lang.org/en/)
+* [Ruby 2.2.3](https://www.ruby-lang.org/en/)
 * [Rails 5](http://rubyonrails.org/) / [PostgreSQL](https://www.postgresql.org/)
 * [ActionCable](http://edgeguides.rubyonrails.org/action_cable_overview.html) / [Redis](https://redis.io/)
 * [Text Summarization API](http://textsummarization.net/text-summarization-api-document)
