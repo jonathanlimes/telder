@@ -35,7 +35,7 @@ Actual Site:
 * [Text Summarization API](http://textsummarization.net/text-summarization-api-document)
 * [Google Natural Language Processing API](https://cloud.google.com/natural-language/)
 * [Bulma CSS](http://bulma.io/) / [jQuery](https://jquery.com/)
-* [View Code Presentation here](https://docs.google.com/presentation/d/1GZuxQmz79C-FXYJqEw-sJ5g3nyWlD2W8iNKg_elhykc/edit?usp=sharing)
+* [User Stories and Pitch Deck Here](https://docs.google.com/presentation/d/1GZuxQmz79C-FXYJqEw-sJ5g3nyWlD2W8iNKg_elhykc/edit?usp=sharing)
 
 ## References, Tools, and Inspiration
 * [Unirest](https://github.com/Mashape/unirest-ruby)
