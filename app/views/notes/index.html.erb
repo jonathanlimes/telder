@@ -14,7 +14,7 @@
                 <select name="note" id="dropdown">
                     <option value="" data-link="<%= notes_path %>">Or find one of your previous notes</option>
                     <% @notes.each do |note| %>
-                    <% if note.creator_id == current_user.id %>
+                    <% if current_user.notes.include?(note) %>
                     <option value="<%= note.id %>" data-link="<%= note_path(note.id) %>"><%= note.title %>
                         (<%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %>)</option>
                     <% end %>
