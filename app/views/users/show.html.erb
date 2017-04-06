@@ -17,7 +17,11 @@
                     <small>Member since
                         <%= @user.created_at.strftime("%e %B %Y") %></small>
                 </h5>
-                <button class="button is-primary" id="toggle-modal-edit-user">Edit Profile</button>
+
+                <% if current_user.id == @user.id %>
+                  <button class="button is-primary" id="toggle-modal-edit-user">Edit Profile</button>
+                <% end %>
+
             </div>
             <div class="column is-1 has-text-centered">
                 <br>
