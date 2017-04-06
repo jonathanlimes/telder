@@ -20,9 +20,13 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 
 ![ERD and User Flow](http://i.imgur.com/gRwbqKF.png)
 
-## Wireframes
+## Design
 
+Wireframes:
 ![Wireframes](http://i.imgur.com/0YYnKJV.png)
+
+Actual Site:
+![Actual Designs](http://i.imgur.com/rrh0dLN.png)
 
 ## Development
 * [Ruby 2.2.3](https://www.ruby-lang.org/en/)
@@ -31,6 +35,7 @@ Telder is a productivity note-taking app. Take your notes, and have them all sum
 * [Text Summarization API](http://textsummarization.net/text-summarization-api-document)
 * [Google Natural Language Processing API](https://cloud.google.com/natural-language/)
 * [Bulma CSS](http://bulma.io/) / [jQuery](https://jquery.com/)
+* [View Code Presentation here](https://docs.google.com/presentation/d/1GZuxQmz79C-FXYJqEw-sJ5g3nyWlD2W8iNKg_elhykc/edit?usp=sharing)
 
 ## References, Tools, and Inspiration
 * [Unirest](https://github.com/Mashape/unirest-ruby)
