@@ -26,7 +26,7 @@ Wireframes:
 ![Wireframes](http://i.imgur.com/0YYnKJV.png)
 
 Actual Site:
-![Actual Designs](http://i.imgur.com/rrh0dLN.png)
+![Actual Designs](http://i.imgur.com/UOX5VdY.png)
 
 ## Development
 * [Ruby 2.2.3](https://www.ruby-lang.org/en/)
