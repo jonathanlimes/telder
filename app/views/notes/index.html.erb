@@ -1,27 +1,34 @@
-<br><div class="container content">
+<br>
+<div class="container content">
 
     <% greetings = ["Hello", "Heya", "Howdy", "How's it going", "What's up", "Looking good", "Hope it's been a good day", "Ahoy", "Greetings", "Aloha", "Hey", "Hi", "Ello", "Sup", "Welcome back"] %>
-    <h1><%= greetings.sample %>, <%= current_user.name.split(" ").first %>.</h1>
+    <h1><%= greetings.sample %>,
+        <%= current_user.name.split(" ").first %>.</h1>
 
     <div class="field has-addons">
-      <p class="control">
-        <%= link_to 'Create new note', new_note_path, class:"button is-primary" %>
-      </p>
-      <p class="control is-expanded">
-        <span class="select is-fullwidth">
-          <select name="note" id="dropdown">
-            <option value="" data-link="<%= notes_path %>">Or find one of your previous notes</option>
-            <% @notes.each do |note| %>
-              <% if note.creator_id == current_user.id %>
-                <option value="<%= note.id %>" data-link="<%= note_path(note.id) %>"><%= note.title %> (<%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %>)</option>
-              <% end %>
-            <% end %>
-          </select>
-        </span>
-      </p>
-      <p class="control">
-        <a href="<%= notes_path %>" id="dropdown-link" class="button is-primary"><span class="icon"><i class="fa fa-chevron-right"></i></span></a>
-      </p>
+        <p class="control">
+            <button id="toggle-new-note" , class="button is-primary">Create new note</button>
+        </p>
+        <p class="control is-expanded">
+            <span class="select is-fullwidth">
+                <select name="note" id="dropdown">
+                    <option value="" data-link="<%= notes_path %>">Or find one of your previous notes</option>
+                    <% @notes.each do |note| %>
+                    <% if note.creator_id == current_user.id %>
+                    <option value="<%= note.id %>" data-link="<%= note_path(note.id) %>"><%= note.title %>
+                        (<%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %>)</option>
+                    <% end %>
+                    <% end %>
+                </select>
+            </span>
+        </p>
+        <p class="control">
+            <a href="<%= notes_path %>" id="dropdown-link" class="button is-primary">
+                <span class="icon">
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+            </a>
+        </p>
     </div>
 
     <table>
@@ -42,22 +49,22 @@
             <% if current_user.notes.include?(note) %>
             <tr>
                 <td>
-                <%= link_to note.title, note, class:"button is-outlined is-small is-primary" %>
+                    <%= link_to note.title, note, class:"button is-outlined is-small is-primary" %>
                 </td>
                 <td><%= note.created_at.localtime.strftime("%e/%m/%y, %I:%M %p") %></td>
                 <td><%= note.summary.split(" ")[0..10].join(" ") %>...</td>
                 <td><%= note.creator.name %></td>
                 <td>
-                <% note.users.each do |user| %>
-                <% if user.name != note.creator.name %>
-                <%= user.name %><br>
-                <% end %>
-                <% end %>
+                    <% note.users.each do |user| %>
+                    <% if user.name != note.creator.name %>
+                    <%= user.name %><br>
+                    <% end %>
+                    <% end %>
                 </td>
                 <% note.tags.any? %>
                 <td><% note.tags.each do |tag| %>
-                <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary", style:"margin:2px; font-size:0.8em" %>
-                <% end %>
+                    <%= link_to tag.name, tagged_url(:tag => tag.name), class:"tag is-primary", style:"margin:2px; font-size:0.8em" %>
+                    <% end %>
                 </td>
                 <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, note, class:"button is-primary"%></td>
                 <% if note.creator.id == current_user.id %>
@@ -70,18 +77,33 @@
         </tbody>
     </table>
 
-    <%= link_to 'Create new note', new_note_path, class:"button is-primary" %>
+    <button id="toggle-new-note" , class="button is-primary">Create new note</button>
 
+</div>
+
+<div class="modal" id="modal-new-note">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="notification">
+            <button class="delete is-pulled-right" id="toggle-new-note"></button>
+            <h1 class="title">Create new note</h1>
+            <%= render 'newform', note: @note %>
+        </div>
+    </div>
+    <button class="modal-close" id="toggle-new-note"></button>
 </div>
 
 <script>
 
-$('select').change(function() {
-  console.log('params changed')
-  $('select option:selected').each(function() {
-    var link = $(this).data('link')
-    $('#dropdown-link').attr('href', link)
-  })
-})
+    $('select').change(function () {
+        console.log('params changed')
+        $('select option:selected').each(function () {
+            var link = $(this).data('link')
+            $('#dropdown-link').attr('href', link)
+        })
+    })
 
+    $('[id=toggle-new-note]').click(function () {
+        $('#modal-new-note').toggleClass('is-active')
+    })
 </script>

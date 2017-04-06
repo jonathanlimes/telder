@@ -1,4 +1,4 @@
-<div class="container content">
+
 
     <%= form_for(note) do |f| %>
     <% if note.errors.any? %>
@@ -26,7 +26,7 @@
 
     <div class="field">
         <label class="label">Text</label>
-        <%= f.text_area :text, class:"textarea"%>
+        <%= f.text_area :text, class:"textarea", id:"note-text"%>
     </div>
 
     <div class="actions">
@@ -34,5 +34,3 @@
         <%= link_to 'Back to Notes', notes_path, class:"button is-warning" %>
     </div>
     <% end %>
-
-</div>
